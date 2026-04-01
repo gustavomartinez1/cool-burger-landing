@@ -7,7 +7,7 @@ interface BurgerCardProps {
 
 export const BurgerCard = ({ name, description, price, imageUrl }: BurgerCardProps) => {
   return (
-    <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-gray-600 transition-border duration-300">
+    <div className="burger-card bg-gray-800 border border-gray-700 rounded-lg overflow-hidden">
       {imageUrl ? (
         <img 
           src={imageUrl} 
@@ -15,8 +15,8 @@ export const BurgerCard = ({ name, description, price, imageUrl }: BurgerCardPro
           className="w-full h-48 object-cover"
         />
       ) : (
-        <div className="w-full h-48 bg-gray-700 flex items-center justify-center">
-          <div className="text-gray-500">Imagen de {name}</div>
+        <div className="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+          <div className="text-6xl">🍔</div>
         </div>
       )}
       
@@ -24,10 +24,15 @@ export const BurgerCard = ({ name, description, price, imageUrl }: BurgerCardPro
         <h3 className="text-xl font-bold mb-2 text-white">{name}</h3>
         <p className="text-gray-400 mb-4 line-clamp-3">{description}</p>
         <div className="flex justify-between items-center">
-          <span className="text-red-600 font-bold text-lg">${price}</span>
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition-colors">
+          <span className="text-red-500 font-bold text-lg">${price}</span>
+          <a 
+            href="https://wa.me/525512345678?text=Hola%20quisiera%20pedir%20una%20" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition-colors"
+          >
             Pedir
-          </button>
+          </a>
         </div>
       </div>
     </div>
