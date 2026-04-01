@@ -8,25 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
 
       - name: Create Pages Project (if not exists)
         run: |
@@ -40,4 +26,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ./out --project-name=cool-burger-landing --branch=main --commit-dirty=true
+          command: pages deploy . --project-name=cool-burger-landing --branch=main --commit-dirty=true
