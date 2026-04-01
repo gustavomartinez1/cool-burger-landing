@@ -1,0 +1,13 @@
+# Security Headers for Cloudflare Pages
+# Applied to all routes
+
+/*
+  referrer-policy: strict-origin-when-cross-origin
+  x-content-type-options: nosniff
+  x-frame-options: DENY
+  permissions-policy: camera=(), microphone=(), geolocation=()
+
+# Content Security Policy - Adjust based on testing
+# Start with report-only mode if needed
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'https://wa.me'; object-src 'none'; base-uri 'self'; form-action 'self';
